@@ -625,3 +625,30 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
   Rendered posts/edit.html.erb within layouts/application (16.6ms)
 Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2018-11-05 08:33:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 816ms (Views: 783.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/posts/2" for ::1 at 2018-11-05 08:33:41 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t6AmFBEbZToOvFxs6gwBQz8DxsBaGl7kdJl1y+E4CCmCsQzuHxNA/1OIKpOUE55+DzFE+zkSSpIoiPeMSf8RAw==", "post"=>{"title"=>"Rails Introduction", "description"=>"blah blah blah"}, "commit"=>"Submit Post", "id"=>"2"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"patch", "authenticity_token"=>"t6AmFBEbZToOvFxs6gwBQz8DxsBaGl7kdJl1y+E4CCmCsQzuHxNA/1OIKpOUE55+DzFE+zkSSpIoiPeMSf8RAw==", "post"=>{"title"=>"Rails Introduction", "description"=>"blah blah blah"}, "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"2"}):
+  app/controllers/posts_controller.rb:28:in `update'
+
+
+  Rendered /Users/Bethany/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Bethany/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.0ms)
+  Rendered /Users/Bethany/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/Bethany/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (125.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'posts@update'` to `controller: 'posts@update'`. (called from block in <top (required)> at /Users/Bethany/Desktop/Devs/Mod-2/Rails/rails-edit-update-action-readme-dc-web-100818/config/routes.rb:4)
